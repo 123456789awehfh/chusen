@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+    <a href="index.html">
+        <div class="header_top">
+            <img src="icon.png" alt="">
+            <h1>選挙でちゅうせん</h1>
+        </div>
+    </a>
+    <div class="body_content">
+        <h1 class="body_content_titleB demo">「選挙でちゅうせん」利用方法</h1>
+        <p class="body_content_text">
+            以下の設定に従って動作してください。
+        </p>
+    </div>
+    <div class="chusen_setting">
+        <h2 class="chusen_setting_title">設定</h2>
+        <p>抽選設定を行ってください。<br>終了したら抽選を開始するをクリックしてください。</p>
+        <div class="chusen_setting_body">
+            <div class="chusen_setting_body_form">
+                <div class="chusen_setting_body_form_1">
+                    <h3>抽選種別</h3>
+                    <p>抽選する種類を選択してください。<br>2択であれば、小選挙区もしくは住民投票、3択以上であれば小選挙区を選択することをおすすめします。</p>
+                    <select id="electionType" class="form-control">
+                        <option value="single">小選挙区</option>
+                        <option value="referendum">住民投票</option>
+                    </select>
+                </div>
+                <div class="chusen_setting_body_form_2">
+                    <h3>選択肢・候補数 (2〜5)</h3>
+                    <p>小選挙区の候補者数、もしくは住民投票の選択肢の数を選択してください。<br>候補者名、もしくは選択肢を入力してください。</p>
+                    <select id="candCount" class="form-control" onchange="generateCandidateInputs()">
+                        <option value="2" selected>2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="chusen_setting_body_form_3">
+                    <h3>地区名</h3>
+                    <p>選挙区名もしくは地区名を入力してください。</p>
+                    <input type="text" id="areaName" class="areaName_form" value="桜ヶ丘市">
+                </div>
+                <div class="chusen_setting_body_form_4">
+                    <h3>有権者数</h3>
+                    <input type="number" id="voters" class="voters_form" value="12000" step="500">
+                </div>
+                <div class="chusen_setting_body_form_5">
+                    <h3>投票率 (%)</h3>
+                    <input type="number" id="turnout" class="turnout_form" value="65" min="1" max="100">
+                </div>
+                <div class="chusen_setting_body_form_6">
+                    <h3 class="demo">モード</h3>
+                    <select id="raceMode" class="form-control">
+                        <option value="close">接戦</option>
+                        <option value="skewed">票が傾く</option>
+                    </select>
+                </div>
+                <div class="chusen_setting_body_form_7">
+                    <h3>開票スピード</h3>
+                    <select id="electionSpeed" class="form-control">
+                        <option value="fast">高速（各候補100票/約0.1秒）</option>
+                        <option value="normal" selected>標準（各候補100票/約0.2秒）</option>
+                        <option value="slow">じっくり（各候補100票/約0.4秒）</option>
+                    </select>
+                </div>
+
+                <div id="chusen_setting_body_form_koho">
+                    <div class="chusen_setting_body_form_koho_single"></div>
+                    <div class="chusen_setting_body_form_koho_referendum"></div>
+                </div>
+
+                <!-- 抽選開始のメッセージ -->
+                <div id="customModal" class="custom_modal">
+                    <div class="custom_modal_content">
+                        <h3 id="modalTitle" class="custom_modal_title">確認</h3>
+                        <p id="modalMessage" class="custom_modal_message"></p>
+                        <div id="modalButtons" class="custom_modal_buttons">
+                        </div>
+                    </div>
+                </div>
+                <!-- 抽選開始のメッセージおわり -->
+
+                <button id="startBtn" class="chusen_setting_body_form_start" onclick="startElection()">抽選を開始する</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="chusen_result">
+        <h2 class="chusen_result_title">抽選結果</h2>
+        <div class="chusen_result_body" id="chusen_result_body"></div>
+        <div class="chusen_result_burner" id="chusen_result_burner"></div>
+    </div>
+
+
+    <div class="footer">
+        <div class="footer_top">
+            <img src="icon.png" alt="">
+            <h1>Chusen DBA</h1>
+        </div>
+        <div class="footer_center">
+            <a href="index.html">ホーム</a>
+            <a href="chusen.html">選挙でちゅうせん</a>
+            <a href="index.html#news">最新情報</a>
+            <a href="test.html">ヘルプ</a>
+            <a href="terms.html">利用規約・プライバシーポリシー</a>
+            <a href="https://x.com/taros_1113_2">公式 X（旧Twitter）</a>
+        </div>
+        <div class="footer_bottom">
+            <p>© 2026 Chusen DBA. All Rights Reserved.</p>
+        </div>
+    </div>
+</body>
+
+<div class="main_manu_tab">
+    <div class="bottommanu">
+        <button class="bottommanu_button_A" id="bottommanu_button_A"></button>
+        <button class="bottommanu_button_B" id="bottommanu_button_B"></button>
+    </div>
+
+    <nav id="bottommanu_manu" class="bottommanu_manu">
+        <div class="bottommanu_manu_top">
+            <h1>選挙でちゅうせん サービス</h1>
+            <div class="bottommanu_manu_top_body">
+                <h2>サイト内リンク</h2>
+                <div class="bottommanu_manu_top_body_Atg">
+                    <a href="">ホーム</a>
+                    <a href="chusen.html">選挙でちゅうせん</a>
+                    <a href="index.html#news">最新情報</a>
+                    <a href="">ヘルプ</a>
+                    <a href="terms.html">利用規約・プライバシーポリシー</a>
+                </div>
+            </div>
+            <div class="bottommanu_manu_top_body">
+                <h2>サイト外リンク</h2>
+                <div class="bottommanu_manu_top_body_Atg">
+                    <a href="">公式 X（旧Twitter）</a>
+                </div>
+            </div>
+        </div>
+        <div class="bottommanu_manu_bottom">
+            <button class="bottommanu_manu_bottom_close" id="bottommanu_manu_bottom_close">閉じる</button>
+        </div>
+    </nav>
+</div>
+
+<div id="consentBanner" class="consent-banner">
+    <div class="consent-banner-content">
+        <p class="consent-text">
+            当サイトではサービスの利便性向上および規約管理のため、ブラウザのストレージ（Cookie等）を使用しています。<br>
+            詳細については<a href="#terms" id="openTermsLink">利用規約・プライバシーポリシー</a>をご確認ください。
+        </p>
+        <div class="consent-buttons">
+            <button id="btnBannerAgree" class="btn-consent-agree">同意する</button>
+            <button id="btnBannerClose" class="btn-consent-close">閉じる</button>
+        </div>
+    </div>
+</div>
+
+<div id="pcNoticeModal" class="pc-notice-backdrop" style="display: none;">
+    <div class="pc-notice-content">
+        <div class="pc-notice-icon">📱</div>
+        <h2>スマートフォンでの閲覧を推奨します</h2>
+        <p>
+            当サイトはスマートフォン専用のデザインとなっております。<br>
+            パソコンからアクセスされた場合、レイアウトが崩れたり見づらくなる可能性がございます。
+        </p>
+        <button id="btnPcNoticeClose" class="btn-pc-notice-close">このまま閲覧する</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</html>
