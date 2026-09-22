@@ -1,10 +1,11 @@
 [
   {
-    "id": "news2020010101",
-    "title": "お知らせのテストです",
-    "date": "2026年9月22日",
+    "id": "news0001",
+    "date": "2026.09.22",
     "type": "運営より",
-    "image": "https://thumb.ac-illust.com/f4/f404398b13690c5530ffb88be07c6ac5_t.jpeg",
-    "content": "テスト。"
+    "title": "テスト配信",
+    "minicontent": "ニュースをテスト配信。これはindexのみ表示",
+    "content": "より詳細な方のテキストです。<br><br>見れていますか？",
+    "image": "https://thumb.ac-illust.com/f4/f404398b13690c5530ffb88be07c6ac5_t.jpeg"
   }
 ]
