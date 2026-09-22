@@ -107,17 +107,23 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
 
-        newsList.slice(0, 3).forEach(item => {
+        // 最新3件を取得
+        const topNews = newsList.slice(0, 3);
+
+        topNews.forEach(item => {
           const newsAnchor = document.createElement('a');
           newsAnchor.href = `news.html?id=${item.id}`;
+
+          // minicontent -> content -> text の順で有るものを採用し、undefinedを防ぐ
+          const displayText = item.minicontent || item.content || item.text || '';
 
           newsAnchor.innerHTML = `
             <div class="body_content_news_tab">
                 <img class="body_content_news_tab_left" src="${item.image || 'icon.png'}" alt="">
                 <div class="body_content_news_tab_right">
-                    <div class="body_content_news_tab_right_day new">${item.date}</div>
-                    <div class="body_content_news_tab_right_title">${item.title}</div>
-                    <div class="body_content_news_tab_right_text">${item.text}</div>
+                    <div class="body_content_news_tab_right_day new">${item.date || ''}</div>
+                    <div class="body_content_news_tab_right_title">${item.title || ''}</div>
+                    <div class="body_content_news_tab_right_text">${displayText}</div>
                 </div>
             </div>
           `;
@@ -135,12 +141,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // --------------------------------------------------
   const newsDetailContainer = document.getElementById('news-detail-container');
   if (newsDetailContainer) {
-    // URLのパラメータから id を取得 (?id=xxx)
     const urlParams = new URLSearchParams(window.location.search);
     const newsId = urlParams.get('id');
 
     if (!newsId) {
-      newsDetailContainer.innerHTML = '<p style="padding: 10px; color: #666;">指定されたニュースが見つかりません。</p>';
+      newsDetailContainer.innerHTML = '<p style="padding: 15px; color: #666;">指定されたニュースが見つかりません。</p>';
       return;
     }
 
@@ -150,33 +155,40 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
       })
       .then(newsList => {
-        // IDが一致する記事を検索
         const article = newsList.find(item => item.id === newsId);
 
         if (!article) {
-          newsDetailContainer.innerHTML = '<p style="padding: 10px; color: #666;">該当するニュース記事が見つかりませんでした。</p>';
+          newsDetailContainer.innerHTML = '<p style="padding: 15px; color: #666;">該当するニュース記事が見つかりませんでした。</p>';
           return;
         }
 
-        // 詳細ページのHTML要素にデータを反映（要素が存在する場合のみセット）
+        // 各要素へデータを流し込み
+        const pageTitleEl = document.getElementById('page-title');
         const titleEl = document.getElementById('news-title');
         const dateEl = document.getElementById('news-date');
-        const bodyEl = document.getElementById('news-body');
+        const typeEl = document.getElementById('news-type');
+        const contentEl = document.getElementById('news-content');
         const imgEl = document.getElementById('news-image');
 
-        if (titleEl) titleEl.textContent = article.title;
-        if (dateEl) dateEl.textContent = article.date;
-        if (bodyEl) bodyEl.innerHTML = article.content || article.text; // contentがあればそれを、無ければtextを表示
-        if (imgEl && article.image) imgEl.src = article.image;
+        if (pageTitleEl) pageTitleEl.textContent = `${article.title || ''} - 選挙でちゅうせん`;
+        if (titleEl) titleEl.textContent = article.title || '';
+        if (dateEl) dateEl.textContent = article.date || '';
+        if (typeEl) typeEl.textContent = article.type || 'お知らせ';
+        if (imgEl) imgEl.src = article.image || 'icon.png';
+
+        // 本文（content）の表示＆undefined対策
+        if (contentEl) {
+          const mainContent = article.content || article.text || article.minicontent || '';
+          contentEl.innerHTML = mainContent;
+        }
       })
       .catch(error => {
         console.error('ニュース詳細の読み込みに失敗しました:', error);
-        newsDetailContainer.innerHTML = '<p style="padding: 10px; color: #666;">ニュースの読み込みに失敗しました。</p>';
+        newsDetailContainer.innerHTML = '<p style="padding: 15px; color: #666;">ニュースの読み込みに失敗しました。</p>';
       });
   }
 
 });
-
 
 // chusen-html
 
