@@ -82,6 +82,102 @@ if (bottommanu_manu_bottom_close) {
 }
 
 
+// index.html & news.html
+
+/* ===================================================
+   ニュース機能（トップページ一覧＆詳細ページ切り替え）
+=================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+
+  // --------------------------------------------------
+  // 1. トップページ（index.html）のニュース一覧処理
+  // --------------------------------------------------
+  const newsListContainer = document.getElementById('news-list-container');
+  if (newsListContainer) {
+    fetch('news.json')
+      .then(response => {
+        if (!response.ok) throw new Error('ネットワークエラー');
+        return response.json();
+      })
+      .then(newsList => {
+        newsListContainer.innerHTML = '';
+
+        if (!newsList || newsList.length === 0) {
+          newsListContainer.innerHTML = '<p style="padding: 10px; color: #666;">現在お知らせはありません。</p>';
+          return;
+        }
+
+        newsList.slice(0, 3).forEach(item => {
+          const newsAnchor = document.createElement('a');
+          newsAnchor.href = `news.html?id=${item.id}`;
+
+          newsAnchor.innerHTML = `
+            <div class="body_content_news_tab">
+                <img class="body_content_news_tab_left" src="${item.image || 'icon.png'}" alt="">
+                <div class="body_content_news_tab_right">
+                    <div class="body_content_news_tab_right_day new">${item.date}</div>
+                    <div class="body_content_news_tab_right_title">${item.title}</div>
+                    <div class="body_content_news_tab_right_text">${item.text}</div>
+                </div>
+            </div>
+          `;
+          newsListContainer.appendChild(newsAnchor);
+        });
+      })
+      .catch(error => {
+        console.error('ニュース一覧の読み込みに失敗しました:', error);
+        newsListContainer.innerHTML = '<p style="padding: 10px; color: #666;">ニュースの読み込みに失敗しました。</p>';
+      });
+  }
+
+  // --------------------------------------------------
+  // 2. 詳細ページ（news.html）のニュース本文読み込み処理
+  // --------------------------------------------------
+  const newsDetailContainer = document.getElementById('news-detail-container');
+  if (newsDetailContainer) {
+    // URLのパラメータから id を取得 (?id=xxx)
+    const urlParams = new URLSearchParams(window.location.search);
+    const newsId = urlParams.get('id');
+
+    if (!newsId) {
+      newsDetailContainer.innerHTML = '<p style="padding: 10px; color: #666;">指定されたニュースが見つかりません。</p>';
+      return;
+    }
+
+    fetch('news.json')
+      .then(response => {
+        if (!response.ok) throw new Error('ネットワークエラー');
+        return response.json();
+      })
+      .then(newsList => {
+        // IDが一致する記事を検索
+        const article = newsList.find(item => item.id === newsId);
+
+        if (!article) {
+          newsDetailContainer.innerHTML = '<p style="padding: 10px; color: #666;">該当するニュース記事が見つかりませんでした。</p>';
+          return;
+        }
+
+        // 詳細ページのHTML要素にデータを反映（要素が存在する場合のみセット）
+        const titleEl = document.getElementById('news-title');
+        const dateEl = document.getElementById('news-date');
+        const bodyEl = document.getElementById('news-body');
+        const imgEl = document.getElementById('news-image');
+
+        if (titleEl) titleEl.textContent = article.title;
+        if (dateEl) dateEl.textContent = article.date;
+        if (bodyEl) bodyEl.innerHTML = article.content || article.text; // contentがあればそれを、無ければtextを表示
+        if (imgEl && article.image) imgEl.src = article.image;
+      })
+      .catch(error => {
+        console.error('ニュース詳細の読み込みに失敗しました:', error);
+        newsDetailContainer.innerHTML = '<p style="padding: 10px; color: #666;">ニュースの読み込みに失敗しました。</p>';
+      });
+  }
+
+});
+
+
 // chusen-html
 
 let hasAnnounced = false;

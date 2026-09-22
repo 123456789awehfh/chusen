@@ -1,118 +1,3 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- id="page-title" を追加 -->
-    <title id="page-title">選挙でちゅうせん</title>
-    <link rel="icon" href="icon.png" sizes="any">
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body id="top">
-    <a href="index">
-        <div class="header_top">
-            <img src="icon.png" alt="">
-            <h1>選挙でちゅうせん</h1>
-        </div>
-    </a>
-    <div class="body_content">
-        <!-- id="news-main-title" を追加 -->
-        <h1 class="body_content_titleA" id="news-main-title">ニュース</h1>
-        <div class="body_content_news">
-            <div class="body_content_news_body">
-                <div class="body_content_news_body_top">
-                    <img id="news-image" src="https://thumb.ac-illust.com/f4/f404398b13690c5530ffb88be07c6ac5_t.jpeg">
-                    <h1 class="body_content_news_body_top_title" id="news-title">title</h1>
-                    <div class="body_content_news_body_top_body">
-                        <p class="body_content_news_body_top_body_day new" id="news-date">yyyy年mm月dd日</p>
-                        <p class="body_content_news_body_top_body_type" id="news-type">内容</p>
-                    </div>
-                </div>
-                <div class="body_content_news_body_body">
-                    <p class="body_content_news_body_body_text" id="news-content">
-                        読み込み中...
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <div class="footer_top">
-            <img src="icon.png" alt="">
-            <h1>Chusen DBA</h1>
-        </div>
-        <div class="footer_center">
-            <a href="index">ホーム</a>
-            <a href="chusen">選挙でちゅうせん</a>
-            <a href="index#news">最新情報</a>
-            <a href="help">ヘルプ</a>
-            <a href="terms">利用規約・プライバシーポリシー</a>
-            <a href="https://x.com/taros_1113_2">公式 X（旧Twitter）</a>
-        </div>
-        <div class="footer_bottom">
-            <p>© 2026 Chusen DBA. All Rights Reserved.</p>
-        </div>
-    </div>
-</body>
-
-<div class="main_manu_tab">
-    <div class="bottommanu">
-        <button class="bottommanu_button_A" id="bottommanu_button_A"></button>
-        <button class="bottommanu_button_B" id="bottommanu_button_B"></button>
-    </div>
-
-    <nav id="bottommanu_manu" class="bottommanu_manu">
-        <div class="bottommanu_manu_top">
-            <h1>選挙でちゅうせん サービス</h1>
-            <div class="bottommanu_manu_top_body">
-                <h2>サイト内リンク</h2>
-                <div class="bottommanu_manu_top_body_Atg">
-                    <a href="index">ホーム</a>
-                    <a href="chusen">選挙でちゅうせん</a>
-                    <a href="index#news">最新情報</a>
-                    <a href="help">ヘルプ</a>
-                    <a href="terms">利用規約・プライバシーポリシー</a>
-                </div>
-            </div>
-            <div class="bottommanu_manu_top_body">
-                <h2>サイト外リンク</h2>
-                <div class="bottommanu_manu_top_body_Atg">
-                    <a href="https://x.com/taros_1113_2">公式 X（旧Twitter）</a>
-                </div>
-            </div>
-        </div>
-        <div class="bottommanu_manu_bottom">
-            <button class="bottommanu_manu_bottom_close" id="bottommanu_manu_bottom_close">閉じる</button>
-        </div>
-    </nav>
-</div>
-
-<div id="consentBanner" class="consent-banner">
-    <div class="consent-banner-content">
-        <p class="consent-text">
-            当サイトではサービスの利便性向上および規約管理のため、ブラウザのストレージ（Cookie等）を使用しています。<br>
-            詳細については<a href="#terms" id="openTermsLink">利用規約・プライバシーポリシー</a>をご確認ください。
-        </p>提示されたHTMLコードには、いくつかの閉じタグの不足や構造の重複、JavaScriptでの要素取得の不一致が見られます。修正ポイントを整理して反映したコードを以下に示します。
-
-        ### 主な修正点
-        1. **HTML構造の修正**:
-        - `<div class="body_content">` や `<div class="body_content_news">` などの入れ子構造が乱れていたため整形しました。
-                - `</body>` タグがコードの途中に配置されていたため、要素全体の最下部（`
-
-</html>` 直前）に移動しました。
-2. **JavaScriptで取得する要素の追加**:
-- Script内で `page-title`（`<title>`タグ）や `news-main-title` が取得されていましたが、HTML側に該当する `id` や要素がなかったため追加・対応させました。
-    3. **タグの閉じ忘れ防止**:
-    - 各 `<div>` タグが正しく閉じられるように入れ子を整理しました。
-
-        ---
-
-        ### 修正後のコード
-
-        ```html
         <!DOCTYPE html>
         <html lang="ja">
 
@@ -125,7 +10,6 @@
         </head>
 
         <body id="top">
-            <!-- ヘッダー -->
             <a href="index">
                 <div class="header_top">
                     <img src="icon.png" alt="">
@@ -133,11 +17,10 @@
                 </div>
             </a>
 
-            <!-- メインコンテンツ -->
             <div class="body_content">
                 <h1 class="body_content_titleA" id="news-main-title">ニュース</h1>
 
-                <div class="body_content_news">
+                <div class="body_content_news" id="news-detail-container">
                     <div class="body_content_news_body">
                         <div class="body_content_news_body_top">
                             <img id="news-image"
@@ -158,7 +41,6 @@
                 </div>
             </div>
 
-            <!-- フッター -->
             <div class="footer">
                 <div class="footer_top">
                     <img src="icon.png" alt="">
@@ -178,7 +60,6 @@
                 </div>
             </div>
 
-            <!-- ボトムメニュー -->
             <div class="main_manu_tab">
                 <div class="bottommanu">
                     <button class="bottommanu_button_A" id="bottommanu_button_A"></button>
@@ -212,7 +93,6 @@
                 </nav>
             </div>
 
-            <!-- Cookie同意バナー -->
             <div id="consentBanner" class="consent-banner">
                 <div class="consent-banner-content">
                     <p class="consent-text">
@@ -226,7 +106,6 @@
                 </div>
             </div>
 
-            <!-- PC閲覧注意モーダル -->
             <div id="pcNoticeModal" class="pc-notice-backdrop" style="display: none;">
                 <div class="pc-notice-content">
                     <div class="pc-notice-icon">📱</div>
@@ -240,50 +119,6 @@
             </div>
 
             <script src="script.js"></script>
-
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    // URLから id=xxx を取得
-                    const params = new URLSearchParams(window.location.search);
-                    const targetId = params.get('id');
-
-                    // news.json を読み込む
-                    fetch('news.json')
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('ネットワークエラーが発生しました');
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            // IDが一致する記事を探す（指定がなければ最新の1件目）
-                            const article = data.find(item => item.id === targetId) || data[0];
-
-                            if (article) {
-                                const pageTitle = document.getElementById('page-title');
-                                if (pageTitle) pageTitle.textContent = `${article.title} - 選挙でちゅうせん`;
-
-                                const newsMainTitle = document.getElementById('news-main-title');
-                                if (newsMainTitle) newsMainTitle.textContent = article.title;
-
-                                document.getElementById('news-title').textContent = article.title;
-                                document.getElementById('news-date').textContent = article.date;
-                                document.getElementById('news-type').textContent = article.type;
-                                document.getElementById('news-content').innerHTML = article.content; // <br>等のタグを反映
-
-                                if (article.image) {
-                                    document.getElementById('news-image').src = article.image;
-                                }
-                            } else {
-                                document.getElementById('news-content').textContent = '記事が見つかりませんでした。';
-                            }
-                        })
-                        .catch(error => {
-                            console.error('ニュースの読み込みに失敗しました:', error);
-                            document.getElementById('news-content').textContent = 'ニュースの読み込みに失敗しました。';
-                        });
-                });
-            </script>
         </body>
 
         </html>
