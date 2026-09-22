@@ -44,6 +44,7 @@ body {
     width: 100%;
     z-index: 3;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 .header_top img {
@@ -53,6 +54,7 @@ body {
 }
 
 .header_top h1 {
+    color: inherit;
     font-size: 1.6rem;
 }
 

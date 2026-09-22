@@ -1,124 +1,121 @@
-        <!DOCTYPE html>
-        <html lang="ja">
+<!DOCTYPE html>
+<html lang="ja">
 
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title id="page-title">選挙でちゅうせん</title>
-            <link rel="icon" href="icon.png" sizes="any">
-            <link rel="stylesheet" href="style.css">
-        </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">選挙でちゅうせん</title>
+    <link rel="icon" href="icon.png" sizes="any">
+    <link rel="stylesheet" href="style.css">
+</head>
 
-        <body id="top">
-            <a href="index">
-                <div class="header_top">
-                    <img src="icon.png" alt="">
-                    <h1>選挙でちゅうせん</h1>
-                </div>
-            </a>
+<body id="top">
+    <a href="index" class="header_top">
+        <img src="icon.png" alt="">
+        <h1>選挙でちゅうせん</h1>
+    </a>
+    <div class="body_content">
+        <h1 class="body_content_titleA" id="news-main-title">ニュース</h1>
 
-            <div class="body_content">
-                <h1 class="body_content_titleA" id="news-main-title">ニュース</h1>
-
-                <div class="body_content_news" id="news-detail-container">
-                    <div class="body_content_news_body">
-                        <div class="body_content_news_body_top">
-                            <img id="news-image"
-                                src="[https://thumb.ac-illust.com/f4/f404398b13690c5530ffb88be07c6ac5_t.jpeg](https://thumb.ac-illust.com/f4/f404398b13690c5530ffb88be07c6ac5_t.jpeg)"
-                                alt="ニュース画像">
-                            <h1 class="body_content_news_body_top_title" id="news-title">title</h1>
-                            <div class="body_content_news_body_top_body">
-                                <p class="body_content_news_body_top_body_day new" id="news-date">yyyy年mm月dd日</p>
-                                <p class="body_content_news_body_top_body_type" id="news-type">内容</p>
-                            </div>
-                        </div>
-                        <div class="body_content_news_body_body">
-                            <p class="body_content_news_body_body_text" id="news-content">
-                                読み込み中...
-                            </p>
-                        </div>
+        <div class="body_content_news" id="news-detail-container">
+            <div class="body_content_news_body">
+                <div class="body_content_news_body_top">
+                    <img id="news-image"
+                        src="[https://thumb.ac-illust.com/f4/f404398b13690c5530ffb88be07c6ac5_t.jpeg](https://thumb.ac-illust.com/f4/f404398b13690c5530ffb88be07c6ac5_t.jpeg)"
+                        alt="ニュース画像">
+                    <h1 class="body_content_news_body_top_title" id="news-title">title</h1>
+                    <div class="body_content_news_body_top_body">
+                        <p class="body_content_news_body_top_body_day new" id="news-date">yyyy年mm月dd日</p>
+                        <p class="body_content_news_body_top_body_type" id="news-type">内容</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="footer">
-                <div class="footer_top">
-                    <img src="icon.png" alt="">
-                    <h1>Chusen DBA</h1>
-                </div>
-                <div class="footer_center">
-                    <a href="index">ホーム</a>
-                    <a href="chusen">選挙でちゅうせん</a>
-                    <a href="index#news">最新情報</a>
-                    <a href="help">ヘルプ</a>
-                    <a href="terms">利用規約・プライバシーポリシー</a>
-                    <a href="[https://x.com/taros_1113_2](https://x.com/taros_1113_2)" target="_blank"
-                        rel="noopener noreferrer">公式 X（旧Twitter）</a>
-                </div>
-                <div class="footer_bottom">
-                    <p>© 2026 Chusen DBA. All Rights Reserved.</p>
-                </div>
-            </div>
-
-            <div class="main_manu_tab">
-                <div class="bottommanu">
-                    <button class="bottommanu_button_A" id="bottommanu_button_A"></button>
-                    <button class="bottommanu_button_B" id="bottommanu_button_B"></button>
-                </div>
-
-                <nav id="bottommanu_manu" class="bottommanu_manu">
-                    <div class="bottommanu_manu_top">
-                        <h1>選挙でちゅうせん サービス</h1>
-                        <div class="bottommanu_manu_top_body">
-                            <h2>サイト内リンク</h2>
-                            <div class="bottommanu_manu_top_body_Atg">
-                                <a href="index">ホーム</a>
-                                <a href="chusen">選挙でちゅうせん</a>
-                                <a href="index#news">最新情報</a>
-                                <a href="help">ヘルプ</a>
-                                <a href="terms">利用規約・プライバシーポリシー</a>
-                            </div>
-                        </div>
-                        <div class="bottommanu_manu_top_body">
-                            <h2>サイト外リンク</h2>
-                            <div class="bottommanu_manu_top_body_Atg">
-                                <a href="[https://x.com/taros_1113_2](https://x.com/taros_1113_2)" target="_blank"
-                                    rel="noopener noreferrer">公式 X（旧Twitter）</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottommanu_manu_bottom">
-                        <button class="bottommanu_manu_bottom_close" id="bottommanu_manu_bottom_close">閉じる</button>
-                    </div>
-                </nav>
-            </div>
-
-            <div id="consentBanner" class="consent-banner">
-                <div class="consent-banner-content">
-                    <p class="consent-text">
-                        当サイトではサービスの利便性向上および規約管理のため、ブラウザのストレージ（Cookie等）を使用しています。<br>
-                        詳細については<a href="#terms" id="openTermsLink">利用規約・プライバシーポリシー</a>をご確認ください。
+                <div class="body_content_news_body_body">
+                    <p class="body_content_news_body_body_text" id="news-content">
+                        読み込み中...
                     </p>
-                    <div class="consent-buttons">
-                        <button id="btnBannerAgree" class="btn-consent-agree">同意する</button>
-                        <button id="btnBannerClose" class="btn-consent-close">閉じる</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer_top">
+            <img src="icon.png" alt="">
+            <h1>Chusen DBA</h1>
+        </div>
+        <div class="footer_center">
+            <a href="index">ホーム</a>
+            <a href="chusen">選挙でちゅうせん</a>
+            <a href="index#news">最新情報</a>
+            <a href="help">ヘルプ</a>
+            <a href="terms">利用規約・プライバシーポリシー</a>
+            <a href="[https://x.com/taros_1113_2](https://x.com/taros_1113_2)" target="_blank"
+                rel="noopener noreferrer">公式 X（旧Twitter）</a>
+        </div>
+        <div class="footer_bottom">
+            <p>© 2026 Chusen DBA. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <div class="main_manu_tab">
+        <div class="bottommanu">
+            <button class="bottommanu_button_A" id="bottommanu_button_A"></button>
+            <button class="bottommanu_button_B" id="bottommanu_button_B"></button>
+        </div>
+
+        <nav id="bottommanu_manu" class="bottommanu_manu">
+            <div class="bottommanu_manu_top">
+                <h1>選挙でちゅうせん サービス</h1>
+                <div class="bottommanu_manu_top_body">
+                    <h2>サイト内リンク</h2>
+                    <div class="bottommanu_manu_top_body_Atg">
+                        <a href="index">ホーム</a>
+                        <a href="chusen">選挙でちゅうせん</a>
+                        <a href="index#news">最新情報</a>
+                        <a href="help">ヘルプ</a>
+                        <a href="terms">利用規約・プライバシーポリシー</a>
+                    </div>
+                </div>
+                <div class="bottommanu_manu_top_body">
+                    <h2>サイト外リンク</h2>
+                    <div class="bottommanu_manu_top_body_Atg">
+                        <a href="[https://x.com/taros_1113_2](https://x.com/taros_1113_2)" target="_blank"
+                            rel="noopener noreferrer">公式 X（旧Twitter）</a>
                     </div>
                 </div>
             </div>
-
-            <div id="pcNoticeModal" class="pc-notice-backdrop" style="display: none;">
-                <div class="pc-notice-content">
-                    <div class="pc-notice-icon">📱</div>
-                    <h2>スマートフォンでの閲覧を推奨します</h2>
-                    <p>
-                        当サイトはスマートフォン専用のデザインとなっております。<br>
-                        パソコンからアクセスされた場合、レイアウトが崩れたり見づらくなる可能性がございます。
-                    </p>
-                    <button id="btnPcNoticeClose" class="btn-pc-notice-close">このまま閲覧する</button>
-                </div>
+            <div class="bottommanu_manu_bottom">
+                <button class="bottommanu_manu_bottom_close" id="bottommanu_manu_bottom_close">閉じる</button>
             </div>
+        </nav>
+    </div>
 
-            <script src="script.js"></script>
-        </body>
+    <div id="consentBanner" class="consent-banner">
+        <div class="consent-banner-content">
+            <p class="consent-text">
+                当サイトではサービスの利便性向上および規約管理のため、ブラウザのストレージ（Cookie等）を使用しています。<br>
+                詳細については<a href="#terms" id="openTermsLink">利用規約・プライバシーポリシー</a>をご確認ください。
+            </p>
+            <div class="consent-buttons">
+                <button id="btnBannerAgree" class="btn-consent-agree">同意する</button>
+                <button id="btnBannerClose" class="btn-consent-close">閉じる</button>
+            </div>
+        </div>
+    </div>
 
-        </html>
+    <div id="pcNoticeModal" class="pc-notice-backdrop" style="display: none;">
+        <div class="pc-notice-content">
+            <div class="pc-notice-icon">📱</div>
+            <h2>スマートフォンでの閲覧を推奨します</h2>
+            <p>
+                当サイトはスマートフォン専用のデザインとなっております。<br>
+                パソコンからアクセスされた場合、レイアウトが崩れたり見づらくなる可能性がございます。
+            </p>
+            <button id="btnPcNoticeClose" class="btn-pc-notice-close">このまま閲覧する</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
